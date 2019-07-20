@@ -1,0 +1,22 @@
+{
+  "name": "project-cerulean-web-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brianklein12/Project-Cerulean-Web-App.git"
+  },
+  "author": "brian K",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brianklein12/Project-Cerulean-Web-App/issues"
+  },
+  "homepage": "https://github.com/brianklein12/Project-Cerulean-Web-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
