@@ -5,7 +5,7 @@ app.use(express.static('public'))
 app.listen(3000, () => console.log('Server running on port 3000'))
 
 // GET method route
-app.get('/', function (req, res) {
+app.get('/testGetter', function (req, res) {
   res.send('GET request to the homepage')
 })
 
