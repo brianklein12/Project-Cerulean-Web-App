@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/',function(req,res){
-  res.sendfile("/htmlBucketForNow/tester.html");
+  res.sendfile("htmlBucketForNow/tester.html");
 });
 app.post('/login',function(req,res){
   var user_name=req.body.user;
