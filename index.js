@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-var bodyParser     =         require("body-parser");
+var bodyParser = require('body-parser');
 
 app.use(express.static('public'))
 app.listen(3000, () => console.log('Server running on port 3000'))
