@@ -8,7 +8,7 @@
         $("#submit").click(function(){
           user=$("#user").val();
           pass=$("#password").val();
-          $.post("http://localhost:3000/login",{user: user,password: pass}, function(data){
+          $.post("http://ec2-34-205-18-241.compute-1.amazonaws.com/login",{user: user,password: pass}, function(data){
             if(data==='done')
               {
                 alert("login success");
