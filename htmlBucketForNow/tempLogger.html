@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Simple login</title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
+    <script>
+      $(document).ready(function(){
+        var temp,humidity;
+        $("#submit").click(function(){
+          temp=$("#Temperature").val();
+          humidity=$("#Humidity").val();
+          $.post("http://localhost:3000/logTemp",{Temperature: temp,Humidity: humidity}, function(data){
+            if(data==='done')
+              {
+                alert("Temp Log");
+              }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Temp Logged !</h1>
+    <input type="TEXT" id="temp" size="40"><br>
+    <input type="TEXT" id="humidity" size="40"><br>
+    <input type="button" id="submit" value="Submit">
+  </body>
+</html>
