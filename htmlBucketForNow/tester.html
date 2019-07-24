@@ -4,11 +4,11 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
     <script>
       $(document).ready(function(){
-        var user,pass;
+        var tempLocal,humidityLocal;
         $("#submit").click(function(){
-          user=$("#user").val();
-          pass=$("#password").val();
-          $.post("http://ec2-34-205-18-241.compute-1.amazonaws.com/login",{user: user,password: pass}, function(data){
+          tempLocal=$("#temperature").val();
+          humidityLocal=$("#humidity").val();
+          $.post("http://ec2-34-205-18-241.compute-1.amazonaws.com/login",{temp: tempLocal,humid: humidityLocal}, function(data){
             if(data==='done')
               {
                 alert("login success");
@@ -20,8 +20,8 @@
   </head>
   <body>
     <h1>Hello people !</h1>
-    <input type="TEXT" id="user" size="40"><br>
-    <input type="password" id="password" size="40"><br>
+    <input type="TEXT" id="temperature" size="40"><br>
+    <input type="TEXT" id="humidity" size="40"><br>
     <input type="button" id="submit" value="Submit">
   </body>
 </html>
