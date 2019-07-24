@@ -34,7 +34,6 @@ var express = require('express'),
     url = require('url');
 var bodyParser     =         require("body-parser");
 var app            =         express();
-var JSON = require("json");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
