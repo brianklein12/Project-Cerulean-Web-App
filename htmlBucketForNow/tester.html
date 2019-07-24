@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Simple login</title>
+    <title>Log Post Data</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">  </script>
     <script>
       $(document).ready(function(){
@@ -8,7 +8,7 @@
         $("#submit").click(function(){
           tempLocal=$("#temperature").val();
           humidityLocal=$("#humidity").val();
-          $.post("http://ec2-34-205-18-241.compute-1.amazonaws.com/login",{temp: tempLocal,humid: humidityLocal}, function(data){
+          $.post("http://ec2-34-205-18-241.compute-1.amazonaws.com/logTemp",{temp: tempLocal,humid: humidityLocal}, function(data){
             if(data==='done')
               {
                 alert("login success");

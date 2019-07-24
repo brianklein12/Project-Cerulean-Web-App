@@ -34,6 +34,7 @@ var express = require('express'),
     url = require('url');
 var bodyParser     =         require("body-parser");
 var app            =         express();
+var JSON = require("json");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -43,12 +44,11 @@ app.get('/',function(req,res){
 });
 
 app.post('/logTemp',function(req,res){
+  var filePath="/"
   var temperature=req.body.temp;
   var humidity=req.body.humid;
-  console.log("User name = "+temperature+", password is "+humidity);
-  fs.appendFile(filePath, request.body, function () {
-      respond.end();
-  });
+  console.log("Temperature is = "+temperature+", humidity is "+humidity);
+  fs.writeFile('2pac.txt', JSON.stringify(req.body), 'ascii');
   res.end("done");
 });
 
