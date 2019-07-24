@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       user: 'ubuntu',
-      host: 'ec2-3-80-198-41.compute-1.amazonaws.com',
+      host: 'ec2-34-205-18-241.compute-1.amazonaws.com',
       key: '~/Downloads/bk_key_pair.pem',
       ref: 'origin/master',
       repo: 'git@github.com:brianklein12/Project-Cerulean-Web-App.git',
