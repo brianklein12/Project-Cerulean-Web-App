@@ -30,8 +30,7 @@
 // })
 
 var express = require('express'),
-    fs = require('fs')
-    url = require('url');
+    fs = require('fs');
 var bodyParser     =         require("body-parser");
 var app            =         express();
 
@@ -43,7 +42,6 @@ app.get('/',function(req,res){
 });
 
 app.post('/logTemp',function(req,res){
-  var filePath="/"
   var temperature=req.body.temp;
   var humidity=req.body.humid;
   console.log("Temperature is = "+temperature+", humidity is "+humidity);
