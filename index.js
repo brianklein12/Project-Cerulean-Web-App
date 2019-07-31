@@ -29,25 +29,23 @@
 //   res.status(404).send("Sorry can't find that!")
 // })
 
-var express = require('express'),
-    fs = require('fs')
-    url = require('url');
-var bodyParser     =         require("body-parser");
-var app            =         express();
+import express from 'express';
+import { writeFile } from 'fs';
+import { urlencoded, json } from "body-parser";
+var app = express();
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: false }));
+app.use(json());
 
 app.get('/',function(req,res){
   res.sendfile("htmlBucketForNow/tester.html");
 });
 
 app.post('/logTemp',function(req,res){
-  var filePath="/"
   var temperature=req.body.temp;
   var humidity=req.body.humid;
   console.log("Temperature is = "+temperature+", humidity is "+humidity);
-  fs.writeFile('2pac.txt', JSON.stringify(req.body), 'ascii');
+  writeFile('2pac.txt', JSON.stringify(req.body), 'ascii');
   res.end("done");
 });
 
