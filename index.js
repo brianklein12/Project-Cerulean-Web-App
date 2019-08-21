@@ -39,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get('/',function(req,res){
-  res.sendFile(__dirname + "htmlBucketForNow/tester.html");
+  res.sendFile(__dirname + "/htmlBucketForNow/tester.html");
 });
 
 app.post('/logTemp',function(req,res){
