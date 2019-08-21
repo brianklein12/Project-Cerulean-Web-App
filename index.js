@@ -31,8 +31,9 @@
 
 var express = require('express'),
     fs = require('fs');
-var bodyParser     =         require("body-parser");
-var app            =         express();
+var bodyParser       =         require("body-parser");
+var app              =         express();
+var urlEncodedParser =         bodyParser.urlencoded({extended: false});
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -47,6 +48,18 @@ app.post('/logTemp',function(req,res){
   console.log("Temperature is = "+temperature+", humidity is "+humidity);
   fs.writeFile('2pac.txt', JSON.stringify(req.body), 'ascii');
   res.end("done");
+});
+
+app.post('/sensorData', urlEncodedParser, (req, res) => {
+  console.log(req.body);
+  fs.appendFile('SensorData.txt', 'Temperature: ' + req.body.temp + ' F, ' 
+                + 'Humidity: ' + req.body.humidity + ' %RH\n', 'utf8',
+    // Callback function
+    function(err){
+      if(err) throw err;
+    }
+   );
+  res.send('[Server]: Data stored!');
 });
 
 app.listen(3000,function(){

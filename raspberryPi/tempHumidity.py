@@ -2,10 +2,11 @@
 #
 # I2C Address: 0x44
 # Voltage:     3.3 V or 5.5 V
-# Temperature Sensor Range: -40–125°C, with ±0.3°C accuracy
+# Temperature Sensor Range: -40-125 C, with 0.3 C accuracy.
 
 import smbus
 import time
+import requests
 
 # Get I2C bus
 bus = smbus.SMBus(1)
@@ -30,3 +31,13 @@ humidity = 100 * (data[3] * 256 + data[4]) / 65535.0
 print ("Temperature in Celsius is : %.2f C"    %cTemp)
 print ("Temperature in Fahrenheit is : %.2f F" %fTemp)
 print ("Relative Humidity is : %.2f %%RH"      %humidity)
+
+# Send data to AWS web server.
+url     = "http://ec2-18-188-51-10.us-east-2.compute.amazonaws.com/sensorData"
+payload = {'temp': '%.2f'%fTemp, 'humidity': '%.2f'%humidity}
+
+r = requests.post(url, data=payload)
+if r.status_code == 200:
+    print(r.text)               # Code to handle web response
+else:
+    print('Something is wrong') # in case of something went wrong!
