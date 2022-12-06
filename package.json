@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/brianklein12/Project-Cerulean-Web-App#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
-    "express": "^4.17.1"
+    "body-parser": "^1.20.1",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "pm2": "^3.5.1"
